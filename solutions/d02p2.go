@@ -1,36 +1,11 @@
-package main
+package solutions
 
 import (
-	"bufio"
-	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"strings"
 )
 
-func readFile(path string) []string {
-	ret := []string{}
-
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		ret = append(ret, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	return ret
-}
-
-func checkValid(line string) int {
+func checkValidity(line string) int {
 	replaced := strings.ReplaceAll(line, "-", " ")
 	replaced = strings.ReplaceAll(replaced, ":", " ")
 	tokens := strings.Split(replaced, " ")
@@ -59,13 +34,12 @@ func checkValid(line string) int {
 	return 0
 }
 
-func main() {
-	lines := readFile("input.txt")
+func D02P2(input []string) int {
 	count := 0
 
-	for _, line := range lines {
-		count += checkValid(line)
+	for _, line := range input {
+		count += checkValidity(line)
 	}
 
-	fmt.Println(count)
+	return count
 }

@@ -1,12 +1,9 @@
-package main
+package solutions
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
-
-	"github.com/seredot/advent-of-code-2020/utils"
 )
 
 func validByr(val string) bool {
@@ -75,7 +72,7 @@ func validPid(val string) bool {
 	return rePid.MatchString(val)
 }
 
-func validate(props []string) int {
+func validateProps(props []string) int {
 	hashMap := map[string]string{}
 
 	for _, prop := range props {
@@ -103,26 +100,24 @@ func validate(props []string) int {
 	return 0
 }
 
-func main() {
-	lines := utils.ReadFile("input.txt")
-
+func D04P2(input []string) int {
 	count := 0
 
 	props := []string{}
 	cur := 0
 
 	for {
-		props = append(props, strings.Split(lines[cur], " ")...)
+		props = append(props, strings.Split(input[cur], " ")...)
 
 		cur++
-		if cur == len(lines) || lines[cur] == "" {
-			count += validate(props)
+		if cur == len(input) || input[cur] == "" {
+			count += validateProps(props)
 			props = []string{}
 		}
-		if cur == len(lines) {
+		if cur == len(input) {
 			break
 		}
 	}
 
-	fmt.Println(count)
+	return count
 }

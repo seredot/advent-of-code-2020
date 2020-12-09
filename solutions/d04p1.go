@@ -1,10 +1,7 @@
-package main
+package solutions
 
 import (
-	"fmt"
 	"strings"
-
-	"github.com/seredot/advent-of-code-2020/utils"
 )
 
 func validate(props []string) int {
@@ -35,26 +32,24 @@ func validate(props []string) int {
 	return 0
 }
 
-func main() {
-	lines := utils.ReadFile("input.txt")
-
+func D04P1(input []string) int {
 	count := 0
 
 	props := []string{}
 	cur := 0
 
 	for {
-		props = append(props, strings.Split(lines[cur], " ")...)
+		props = append(props, strings.Split(input[cur], " ")...)
 
 		cur++
-		if cur == len(lines) || lines[cur] == "" {
+		if cur == len(input) || input[cur] == "" {
 			count += validate(props)
 			props = []string{}
 		}
-		if cur == len(lines) {
+		if cur == len(input) {
 			break
 		}
 	}
 
-	fmt.Println(count)
+	return count
 }

@@ -1,10 +1,4 @@
-package main
-
-import (
-	"fmt"
-
-	"github.com/seredot/advent-of-code-2020/utils"
-)
+package solutions
 
 type seat struct {
 	row int
@@ -41,23 +35,16 @@ func decode(code string) seat {
 	return seat{row, col}
 }
 
-func main() {
-	lines := utils.ReadFile("input.txt")
+func D05P1(input []string) int {
+	max := -1
 
-	hashMap := map[int]bool{}
-
-	for _, line := range lines {
+	for _, line := range input {
 		s := decode(line)
 		id := s.id()
-		hashMap[id] = true
-	}
-
-	for i := 1; i < 1000; i++ {
-		_, prev := hashMap[i-1]
-		_, cur := hashMap[i]
-		_, next := hashMap[i+1]
-		if prev && !cur && next {
-			fmt.Println(i)
+		if id > max {
+			max = id
 		}
 	}
+
+	return max
 }
