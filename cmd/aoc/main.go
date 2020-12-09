@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sort"
+	"time"
 
 	"github.com/seredot/advent-of-code-2020/solutions"
 	"github.com/seredot/advent-of-code-2020/utils"
@@ -23,6 +24,8 @@ var solvers = map[string]solver{
 	"d05p2": solutions.D05P2,
 	"d06p1": solutions.D06P1,
 	"d06p2": solutions.D06P2,
+	"d07p1": solutions.D07P1,
+	"d07p2": solutions.D07P2,
 }
 
 func main() {
@@ -35,7 +38,9 @@ func main() {
 		solver := solvers[key]
 		dayNum := key[1:3]
 		input := utils.ReadFile(fmt.Sprintf("input/%s.txt", dayNum))
+		startTime := time.Now()
 		result := solver(input)
-		fmt.Printf("%s: %d\n", key, result)
+		timeSpan := time.Now().Sub(startTime)
+		fmt.Printf("%s (%v):\t%d\n", key, timeSpan, result)
 	}
 }
