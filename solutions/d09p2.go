@@ -13,7 +13,7 @@ func D09P2(input []string) int {
 	}
 
 	theNum := 248131121 // The magic number to be searched.
-	end := 590          // The end inde of the magic number.
+	end := 590          // The end index of the magic number.
 	start := end - 1
 
 	for {
