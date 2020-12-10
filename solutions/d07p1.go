@@ -1,10 +1,11 @@
 package solutions
 
 import (
+	"fmt"
 	"strings"
 )
 
-func D07P1(input []string) int {
+func D07P1(input []string) string {
 	type bag struct {
 		children map[string]bool
 		contains bool
@@ -67,5 +68,5 @@ func D07P1(input []string) int {
 		}
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

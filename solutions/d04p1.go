@@ -1,6 +1,7 @@
 package solutions
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -32,7 +33,7 @@ func validate(props []string) int {
 	return 0
 }
 
-func D04P1(input []string) int {
+func D04P1(input []string) string {
 	count := 0
 
 	props := []string{}
@@ -51,5 +52,5 @@ func D04P1(input []string) int {
 		}
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

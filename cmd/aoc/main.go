@@ -9,7 +9,7 @@ import (
 	"github.com/seredot/advent-of-code-2020/utils"
 )
 
-type solver func([]string) int
+type solver func([]string) string
 
 var solvers = map[string]solver{
 	"d01p1": solutions.D01P1,
@@ -47,6 +47,6 @@ func main() {
 		startTime := time.Now()
 		result := solver(input)
 		timeSpan := time.Now().Sub(startTime)
-		fmt.Printf("%s (%v):\t%d\n", key, timeSpan, result)
+		fmt.Printf("%s (%v):\t%s\n", key, timeSpan, result)
 	}
 }

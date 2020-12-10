@@ -1,5 +1,7 @@
 package solutions
 
+import "fmt"
+
 func collide(lines []string, dx, dy int) int {
 	count := 0
 	x := 0
@@ -23,7 +25,7 @@ func collide(lines []string, dx, dy int) int {
 	return count
 }
 
-func D03P2(input []string) int {
+func D03P2(input []string) string {
 	product := 1
 
 	product *= collide(input, 1, 1)
@@ -32,5 +34,5 @@ func D03P2(input []string) int {
 	product *= collide(input, 7, 1)
 	product *= collide(input, 1, 2)
 
-	return product
+	return fmt.Sprint(product)
 }

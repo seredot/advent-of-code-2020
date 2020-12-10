@@ -1,8 +1,11 @@
 package solutions
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
-func D09P1(input []string) int {
+func D09P1(input []string) string {
 	nums := map[int]int{}
 
 NEXT:
@@ -28,8 +31,8 @@ NEXT:
 			}
 		}
 
-		return num
+		return fmt.Sprint(num)
 	}
 
-	return 0
+	return ""
 }

@@ -1,11 +1,12 @@
 package solutions
 
 import (
+	"fmt"
 	"sort"
 	"strconv"
 )
 
-func D10P1(input []string) int {
+func D10P1(input []string) string {
 	nums := make([]int, len(input)+2)
 	max := 0
 
@@ -31,5 +32,5 @@ func D10P1(input []string) int {
 		diffs[diff] = diffs[diff] + 1
 	}
 
-	return diffs[1] * diffs[3]
+	return fmt.Sprint(diffs[1] * diffs[3])
 }

@@ -1,6 +1,7 @@
 package solutions
 
 import (
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -100,7 +101,7 @@ func validateProps(props []string) int {
 	return 0
 }
 
-func D04P2(input []string) int {
+func D04P2(input []string) string {
 	count := 0
 
 	props := []string{}
@@ -119,5 +120,5 @@ func D04P2(input []string) int {
 		}
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

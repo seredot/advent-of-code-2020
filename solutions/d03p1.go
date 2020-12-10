@@ -1,6 +1,8 @@
 package solutions
 
-func D03P1(input []string) int {
+import "fmt"
+
+func D03P1(input []string) string {
 	count := 0
 	x := 0
 
@@ -11,5 +13,5 @@ func D03P1(input []string) int {
 		x += 3
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

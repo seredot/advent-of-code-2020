@@ -1,5 +1,7 @@
 package solutions
 
+import "fmt"
+
 func countAllYes(answers []string) int {
 	seenTimes := map[rune]int{}
 
@@ -23,7 +25,7 @@ func countAllYes(answers []string) int {
 	return count
 }
 
-func D06P2(input []string) int {
+func D06P2(input []string) string {
 	count := 0
 
 	answers := []string{}
@@ -43,5 +45,5 @@ func D06P2(input []string) int {
 		}
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

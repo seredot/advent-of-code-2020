@@ -1,6 +1,7 @@
 package solutions
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -34,12 +35,12 @@ func checkValid(line string) int {
 	return 1
 }
 
-func D02P1(input []string) int {
+func D02P1(input []string) string {
 	count := 0
 
 	for _, line := range input {
 		count += checkValid(line)
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

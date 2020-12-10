@@ -1,11 +1,12 @@
 package solutions
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
 
-func D08P2(input []string) int {
+func D08P2(input []string) string {
 	type lines = map[int]bool
 
 	interpret := func() (acc int, runLines lines, success bool) {
@@ -62,11 +63,11 @@ func D08P2(input []string) int {
 
 		acc, _, success := interpret()
 		if success {
-			return acc
+			return fmt.Sprint(acc)
 		}
 
 		input[cur] = temp
 	}
 
-	return 0
+	return ""
 }

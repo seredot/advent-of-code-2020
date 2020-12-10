@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func D10P2(input []string) int {
+func D10P2(input []string) string {
 	nums := make([]int, len(input)+2)
 	max := 0
 
@@ -21,17 +21,6 @@ func D10P2(input []string) int {
 
 	nums[len(nums)-1] = max + 3
 	sort.Ints(nums)
-
-	diffs := map[int]int{1: 0, 2: 0, 3: 0}
-
-	for i, num := range nums {
-		if i+1 == len(nums) {
-			break
-		}
-
-		diff := nums[i+1] - num
-		diffs[diff] = diffs[diff] + 1
-	}
 
 	count := 0
 	clustersOf1 := map[int]int{}
@@ -74,7 +63,6 @@ func D10P2(input []string) int {
 	*/
 
 	result := int64(math.Pow(2, float64(clustersOf1[2])) * math.Pow(4, float64(clustersOf1[3])) * math.Pow(7, float64(clustersOf1[4])))
-	fmt.Printf("%d\n", result)
 
-	return 0
+	return fmt.Sprint(result)
 }

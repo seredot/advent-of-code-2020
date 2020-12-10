@@ -1,5 +1,7 @@
 package solutions
 
+import "fmt"
+
 func countYesQuestions(chars string) int {
 	seen := map[rune]bool{}
 
@@ -10,7 +12,7 @@ func countYesQuestions(chars string) int {
 	return len(seen)
 }
 
-func D06P1(input []string) int {
+func D06P1(input []string) string {
 	count := 0
 
 	chars := ""
@@ -29,5 +31,5 @@ func D06P1(input []string) int {
 		}
 	}
 
-	return count
+	return fmt.Sprint(count)
 }

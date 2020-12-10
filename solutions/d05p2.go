@@ -1,5 +1,7 @@
 package solutions
 
+import "fmt"
+
 type seatInfo struct {
 	row int
 	col int
@@ -35,7 +37,7 @@ func decode2(code string) seat {
 	return seat{row, col}
 }
 
-func D05P2(input []string) int {
+func D05P2(input []string) string {
 	hashMap := map[int]bool{}
 
 	for _, line := range input {
@@ -49,9 +51,9 @@ func D05P2(input []string) int {
 		_, cur := hashMap[i]
 		_, next := hashMap[i+1]
 		if prev && !cur && next {
-			return i
+			return fmt.Sprint(i)
 		}
 	}
 
-	return 0
+	return ""
 }

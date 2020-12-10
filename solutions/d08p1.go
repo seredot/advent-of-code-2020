@@ -1,11 +1,12 @@
 package solutions
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
 
-func D08P1(input []string) int {
+func D08P1(input []string) string {
 	runLines := map[int]bool{}
 
 	acc := 0
@@ -13,7 +14,7 @@ func D08P1(input []string) int {
 
 	for {
 		if _, ok := runLines[cur]; ok {
-			return acc
+			return fmt.Sprint(acc)
 		}
 
 		runLines[cur] = true
@@ -35,5 +36,5 @@ func D08P1(input []string) int {
 		cur++
 	}
 
-	return 0
+	return ""
 }

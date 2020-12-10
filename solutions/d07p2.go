@@ -1,11 +1,12 @@
 package solutions
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
 
-func D07P2(input []string) int {
+func D07P2(input []string) string {
 	type bag struct {
 		children  map[string]int
 		contained bool
@@ -62,5 +63,5 @@ func D07P2(input []string) int {
 		}
 	}
 
-	return theOne.countBags
+	return fmt.Sprint(theOne.countBags)
 }

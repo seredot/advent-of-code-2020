@@ -1,10 +1,11 @@
 package solutions
 
 import (
+	"fmt"
 	"strconv"
 )
 
-func D01P2(input []string) int {
+func D01P2(input []string) string {
 	data := []int{}
 
 	for _, line := range input {
@@ -23,7 +24,7 @@ func D01P2(input []string) int {
 			num3 := left - num2
 
 			if _, ok := hashMap[num3]; ok {
-				return num1 * num2 * num3
+				return fmt.Sprint(num1 * num2 * num3)
 			}
 
 			hashMap[num2] = num2
@@ -32,5 +33,5 @@ func D01P2(input []string) int {
 		hashMap[num1] = num1
 	}
 
-	return 0
+	return ""
 }

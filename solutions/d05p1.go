@@ -1,5 +1,7 @@
 package solutions
 
+import "fmt"
+
 type seat struct {
 	row int
 	col int
@@ -35,7 +37,7 @@ func decode(code string) seat {
 	return seat{row, col}
 }
 
-func D05P1(input []string) int {
+func D05P1(input []string) string {
 	max := -1
 
 	for _, line := range input {
@@ -46,5 +48,5 @@ func D05P1(input []string) int {
 		}
 	}
 
-	return max
+	return fmt.Sprint(max)
 }

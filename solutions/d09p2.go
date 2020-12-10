@@ -1,11 +1,12 @@
 package solutions
 
 import (
+	"fmt"
 	"math"
 	"strconv"
 )
 
-func D09P2(input []string) int {
+func D09P2(input []string) string {
 	numbers := make([]int, len(input))
 	for i := 0; i < len(input); i++ {
 		n, _ := strconv.Atoi(input[i])
@@ -47,5 +48,5 @@ func D09P2(input []string) int {
 		}
 	}
 
-	return min + max
+	return fmt.Sprint(min + max)
 }
