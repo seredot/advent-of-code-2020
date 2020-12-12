@@ -34,6 +34,8 @@ var solvers = map[string]solver{
 	"d10p2": solutions.D10P2,
 	"d11p1": solutions.D11P1,
 	"d11p2": solutions.D11P2,
+	"d12p1": solutions.D12P1,
+	"d12p2": solutions.D12P2,
 }
 
 func main() {
