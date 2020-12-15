@@ -40,14 +40,41 @@ var solvers = map[string]solver{
 	"d13p2": solutions.D13P2,
 	"d14p1": solutions.D14P1,
 	"d14p2": solutions.D14P2,
+	"d15p1": solutions.D15P1,
+	"d15p2": solutions.D15P2,
+	/*
+		"d16p1": solutions.D16P1,
+		"d16p2": solutions.D16P2,
+		"d17p1": solutions.D17P1,
+		"d17p2": solutions.D17P2,
+		"d18p1": solutions.D18P1,
+		"d18p2": solutions.D18P2,
+		"d19p1": solutions.D19P1,
+		"d19p2": solutions.D19P2,
+		"d20p1": solutions.D20P1,
+		"d20p2": solutions.D20P2,
+		"d21p1": solutions.D21P1,
+		"d21p2": solutions.D21P2,
+		"d22p1": solutions.D22P1,
+		"d22p2": solutions.D22P2,
+		"d23p1": solutions.D23P1,
+		"d23p2": solutions.D23P2,
+		"d24p1": solutions.D24P1,
+		"d24p2": solutions.D24P2,
+		"d25p1": solutions.D25P1,
+		"d25p2": solutions.D25P2,
+	*/
 }
 
 func main() {
 	keys := []string{}
+
 	for k := range solvers {
 		keys = append(keys, k)
 	}
+
 	sort.Strings(keys)
+
 	for _, key := range keys {
 		solver := solvers[key]
 		dayNum := key[1:3]
@@ -55,6 +82,10 @@ func main() {
 		startTime := time.Now()
 		result := solver(input)
 		timeSpan := time.Now().Sub(startTime)
-		fmt.Printf("%s (%v):\t%s\n", key, timeSpan, result)
+		timeRound := timeSpan.Round(time.Millisecond)
+		if timeSpan < time.Millisecond {
+			timeRound = timeSpan.Round(time.Microsecond)
+		}
+		fmt.Printf("%s (%v)\t%s\n", key, timeRound, result)
 	}
 }
