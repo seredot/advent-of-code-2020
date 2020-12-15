@@ -14,48 +14,24 @@ func D15P1(input []string) string {
 		nums = append(nums, n)
 	}
 
-	type tuple struct {
-		p1 int
-		p2 int
-	}
-
 	turn := 0
-	mem := map[int]*tuple{}
+	mem := map[int]int{}
 	num := 0
 
-	for {
-		turn++
+	for ; turn < len(nums); turn++ {
+		num = nums[turn]
+		mem[num] = turn + 1
+	}
 
-		if turn == 2020 {
-			break
-		}
-
-		if turn-1 < len(nums) {
-			num = nums[turn-1]
-			mem[num] = &tuple{
-				p1: turn,
-				p2: turn,
-			}
-
-			if turn < 3 {
-				continue
-			}
-		}
-
+	for ; turn != 2020; turn++ {
 		m, ok := mem[num]
+		mem[num] = turn
+
 		if !ok {
-			m = &tuple{
-				p1: turn,
-				p2: turn,
-			}
-			mem[num] = m
 			num = 0
 		} else {
-			num = turn - m.p1
-			m.p2 = m.p1
-			m.p1 = turn
+			num = turn - m
 		}
-
 	}
 
 	return fmt.Sprint(num)
