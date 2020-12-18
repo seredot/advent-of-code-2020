@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"sort"
 	"time"
 
@@ -69,8 +70,12 @@ var solvers = map[string]solver{
 func main() {
 	keys := []string{}
 
-	for k := range solvers {
-		keys = append(keys, k)
+	if len(os.Args) == 1 {
+		for k := range solvers {
+			keys = append(keys, k)
+		}
+	} else {
+		keys = []string{os.Args[1]}
 	}
 
 	sort.Strings(keys)
