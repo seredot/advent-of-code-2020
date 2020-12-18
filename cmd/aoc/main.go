@@ -44,8 +44,8 @@ var solvers = map[string]solver{
 	"d15p2": solutions.D15P2,
 	"d16p1": solutions.D16P1,
 	"d16p2": solutions.D16P2,
-	// "d17p1": solutions.D17P1,
-	// "d17p2": solutions.D17P2,
+	"d17p1": solutions.D17P1,
+	"d17p2": solutions.D17P2,
 	"d18p1": solutions.D18P1,
 	"d18p2": solutions.D18P2,
 	/*
